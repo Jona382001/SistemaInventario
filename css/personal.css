@@ -1,0 +1,15 @@
+#personal_data{
+    text-align: center;
+}
+#personal_data th{
+    text-align: center;
+}
+#add_button{
+    background: #1b3c54;
+}
+#registroEmpleados input, #registroEmpleados select{
+    border-radius: 5px;
+}
+#ActualizarEmpleados input, #ActualizarEmpleados select{
+    border-radius: 5px;
+}

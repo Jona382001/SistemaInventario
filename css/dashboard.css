@@ -1,0 +1,51 @@
+.title{
+    background: white;
+    margin-top: -1px;
+    font-size: 40px;
+    color:#1d4866;
+    padding-left: 30px;
+}
+.cajitas{
+    background: white;
+    padding: 5px;
+ margin-top: 10px;
+ margin-left: 10px;
+ width: 95%;
+ height: auto;
+ position: relative;
+ font-size: 20px;
+border-radius: 8px;
+cursor: pointer;
+border:none;
+border-left: 8px solid rgb(167, 8, 8);
+
+color: #1d4866;
+}
+.accesosDirectos{
+    padding: 20px 20px;
+}
+.cajitas img{
+    width: 50px;
+    margin-left: 2px;
+}
+
+.cajitas:hover{
+    background: rgba(69, 90, 129, 0.349);
+    border-left: 8px solid rgb(153, 7, 7);
+}
+#conexiones_data,#asignaciones{
+    text-align: center;
+}
+#conexiones_data th,#asignaciones th{
+    text-align: center;
+}
+.label-conexiones{
+    background:#1d4866;
+    color: white;
+}
+.label-conexiones img{
+    width: 45px;
+}
+.label-conexiones .lista{
+    width: 35px;
+}

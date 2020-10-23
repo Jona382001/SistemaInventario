@@ -1,0 +1,38 @@
+#activo_data{
+    text-align: center;
+    width: auto;
+}
+#activo_data th{
+    text-align: center;
+}
+#add_button{
+    background: #1b3c54;
+}
+
+.box-title{
+    margin-top: -50px;
+    margin-left: 250px;
+}
+#filtro{
+    background: #1b3c54;
+    color: #fff;
+    border-radius: 5px;
+    height: 50px;
+    padding: 7px;
+    padding-left: 50px;
+    
+}
+#filtro input,#filtro select,#filtro button,#filtro label{
+    margin-left: 10px;
+}
+#filtro input,#filtro select{
+    border-radius: 5px;
+    border:none;
+}
+#filtro input{
+    width: 150px;
+}
+#agregarActivo input, #agregarActivo select{
+    border-radius: 5px;
+
+}

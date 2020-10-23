@@ -1,0 +1,216 @@
+<?php
+
+session_start();
+    include_once '../clases/dependencias2.php';
+
+        include_once '../clases/conexion.php';
+        	$con = new conectar();
+          $conexion = $con -> conexion();
+                  $user=$_SESSION['usuario'];
+        
+          $sql = "select u.tipo_usuario,p.pais  from empleado e join usuario u on e.cod_empleado = u.empleado join pais p on e.pais_sede =p.cod_pais where u.usuario = '$user'";
+     
+      
+          $tipoUsuario ='';
+          $result = mysqli_query($conexion,$sql);
+          $fila = $result->fetch_assoc();
+
+          $tipoUsuario=$fila['tipo_usuario'];
+          $_SESSION['Pais-Sede']= $fila['pais'];
+          $_SESSION['tipo_usuario']=$fila['tipo_usuario'];
+if(isset($_SESSION['usuario'])){
+?>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Sistema Compra - Venta | www.eyterhiguera.com</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../public/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../public/bower_components/Ionicons/css/ionicons.min.css">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../public/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../public/dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="../public/bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="../public/bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="../public/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../public/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="../public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+ <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><img src="http://www.intelfon.com.sv/img/slides/parallax/red256.png" alt=""></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><img src="http://www.intelfon.com.sv/img/slides/parallax/red256.png" alt=""><b>  Inventario</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+             
+             <!-- <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span class="hidden-xs"><?php echo $_SESSION['usuario']; ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <!--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+
+                 <i class="fa fa-user" aria-hidden="true"></i>
+
+                <p>
+                <?php echo $_SESSION['usuario']; ?>
+                  <small>Administrador desde Noviembre 2017</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <!--<li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </div>-->
+                <!-- /.row -->
+              <!--</li>-->
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="../clases/salir.php" class="btn btn-default btn-flat">Cerrar</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+       
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+     
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU</li>
+        <li class="">
+          <a href="index.php">
+            <i class="fa fa-home" aria-hidden="true"></i> <span>Inicio</span>
+          </a>
+          
+        </li>
+
+         <li class="">
+          <a href="categorias.php">
+            <i class="fa fa-list" aria-hidden="true"></i> <span>Bodegas</span>
+            <span class="pull-right-container badge bg-blue">
+              <i class="fa fa-bell pull-right">20</i>
+            </span>
+          </a>
+         
+        </li>
+
+        <li class="">
+          <a href="presentacion.php">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>Activos</span>
+            <span class="pull-right-container badge bg-blue">
+              <i class="fa fa-bell pull-right">20</i>
+            </span>
+          </a>
+         
+        </li>
+         <?php if($_SESSION['tipo_usuario']=="Admin"):?>
+
+         <li class="">
+          <a href="usuarios.php">
+            <i class="fa fa-tasks" aria-hidden="true"></i> <span>Usuarios</span>
+            <span class="pull-right-container badge bg-blue">
+              <i class="fa fa-bell pull-right">10</i>
+            </span>
+          </a>
+         
+        </li>
+
+    <?php endif;?>
+
+
+        <li class="">
+          <a href="ventas.php">
+            <i class="fa fa-print" aria-hidden="true"></i> <span>Reportes</span>
+            <span class="pull-right-container badge bg-blue">
+              <i class="fa fa-bell pull-right">8</i>
+            </span>
+          </a>
+         
+        </li>
+
+        <?php if($_SESSION['tipo_usuario']=="Admin"):?>
+        
+         <li class="">
+          <a href="backup.php">
+            <i class="fa fa-database" aria-hidden="true"></i> <span>BackUp</span>
+            <span class="pull-right-container badge bg-blue">
+              <i class="fa fa-bell pull-right">3</i>
+            </span>
+          </a>
+         
+        </li>
+        <?php endif;?>
+       
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+
+<?php 
+}else{
+    header("location:../index.php");
+}
+
+?>

@@ -1,0 +1,40 @@
+.reporte_activos{
+          background: rgb(167, 8, 8);
+          color:#fff;
+          height: 40px;
+          text-align: center;
+          padding: 3px;
+          border-top:1px solid #1b3c54;
+          border-bottom:1px solid #1b3c54;
+}
+.btnImprimir{
+    width: auto;
+    background: #1b3c54;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 25px;
+    width: 120px;
+    margin-bottom: 20px;
+    height: 40px;
+    padding: 3px;
+    margin-left: 950px;
+}
+.btnImprimir:hover{
+    background: #204966;
+}
+.reporte_cantidad{
+    background: #1b3c54;
+          color:#fff;
+          height: 40px;
+          text-align: center;
+          padding: 3px;
+          border-radius: 5px;
+      
+}
+#cantidad_data{
+    text-align: center;
+}
+#cantidad_data th{
+    text-align: center;
+}

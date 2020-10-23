@@ -1,0 +1,32 @@
+#asignar{
+   text-align: left;
+}
+.col-md-5{
+    text-align: center;
+    padding-left: 35px;
+}
+#asignar label{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+#asignar select{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    height: auto;
+}
+#btnAsignar{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#asignaciones th{
+     text-align: center;
+}
+#asignaciones td{
+    text-align: center;
+}
+.col-md-7{
+    text-align: center;
+    padding-right: 35px;
+}
